@@ -17,4 +17,5 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency "parslet"
 
+  gem.add_development_dependency "rspec"
 end

@@ -1,8 +1,12 @@
-class UriTemplate::Transformer < Parslet::Transformer
+require 'parslet'
 
-  rule(:string => simple(:st)) { st.to_s }
+class URITemplate
+  class Transformer < Parslet::Transform
 
-  rule(:var    => simple(:var)) { var.to_s }
+    rule(:string => simple(:st)) { st.to_s }
 
+    rule(:var    => simple(:var)) { var.to_s }
+
+  end
 end
 
