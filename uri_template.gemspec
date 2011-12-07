@@ -14,4 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "uri_template"
   gem.require_paths = ["lib"]
   gem.version       = UriTemplate::VERSION
+
+  gem.add_dependency "parslet"
+
 end
