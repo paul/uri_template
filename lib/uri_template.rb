@@ -94,6 +94,8 @@ class URITemplate
       @exp, @tree = exp, tree
     end
 
+    # Algorithm taken directly from the spec.
+    # TODO: refactor to be Ruby-like
     def value(params)
       value = params[name]
 

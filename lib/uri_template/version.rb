@@ -1,3 +1,3 @@
-module UriTemplate
-  VERSION = "0.0.1"
+class URITemplate
+  VERSION = "1.0.0"
 end
