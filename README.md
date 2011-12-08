@@ -18,9 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
+1. `URITemplate.new` with a URITemplate.
+1. `#expand` the template with a hash of params to be used. Both Strings and Symbols are valid as keys.
+
     tmpl = URITemplate.new("http://example.com/search{?q,lang}")
-    tmpl.expand("q" => ["dogs", "cats"], "lang" => "en_US")
-    # => "http://example.com/search?q=dogs&q=cats&lang=en_US"
+    tmpl.expand(:q => ["dogs", "cats"], "lang" => "en_US")
+    # => "http://example.com/search?q=dogs,cats&lang=en_US"
 
 See the spec for other examples.
 
