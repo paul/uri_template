@@ -4,39 +4,51 @@ class URITemplate
   class Parser < Parslet::Parser
 
     rule(:uri_template) do
-      uri_element.repeat(1)
+      (literals | expression).repeat
     end
 
-    rule(:uri_element) do
-      expansion | uri_part
-    end
-
-    rule(:expansion) do
-      str('{') >> operator.maybe.as(:operator) >> (var_list | var) >> str('}')
+    rule(:expression) do
+      str('{') >> operator.maybe.as(:operator) >> var_list.as(:var_list) >> str('}')
     end
 
     rule(:operator) do
-      str('?')
+      str("+") | str("#") | str(".") | str("/") | str(";") | str("?") | str("&")
     end
 
     rule(:var_list) do
-      (var >> ( str(",") >> var ).repeat(1)).as(:list)
+      (varspec >> ( str(",") >> varspec ).repeat).maybe.as(:array)
     end
 
-    rule(:var) do
-      match('[a-zA-Z0-9]').repeat(1).as(:var)
+    rule(:varspec) do
+      (varname >> modifier.maybe).as(:var)
     end
 
-    rule(:uri_part) do
-      (unreserved | reserved | pct_encoded).repeat(1).as(:string)
+    rule(:varname) do
+      ((varchar >> (varchar | str(".")).repeat).as(:string)).as(:name)
+    end
+
+    rule(:varchar) do
+      (alphanumeric | str("_") | pct_encoded)
+    end
+
+    rule(:modifier) do
+      prefix | explode
+    end
+
+    rule(:prefix) do
+      str(':') >> number.as(:max_length)
+    end
+
+    rule(:explode) do
+      str('*').as(:explode)
+    end
+
+    rule(:literals) do
+      (unreserved | reserved | pct_encoded).repeat(1).as(:literals)
     end
 
     rule(:unreserved) do
       alphanumeric | match("[-._~]")
-    end
-
-    rule(:alphanumeric) do
-      match('[A-Za-z0-9]')
     end
 
     rule(:reserved) do
@@ -45,6 +57,14 @@ class URITemplate
 
     rule(:pct_encoded) do
       str('%') >> hex >> hex
+    end
+
+    rule(:alphanumeric) do
+      match('[A-Za-z0-9]')
+    end
+
+    rule(:number) do
+      match('[0-9]').repeat(1).as(:number)
     end
 
     rule(:hex) do

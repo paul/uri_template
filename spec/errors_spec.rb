@@ -1,11 +1,11 @@
-require 'rspec'
-require File.expand_path(File.dirname(__FILE__) + "/../lib/uri_template")
+require 'spec_helper'
 
 describe URITemplate do
 
   describe "with good uris" do
 
     good = [
+      "{var}",
       "http://example.com/",
       "http://example.com/{foo}",
       "http://example.com/search{?q}",

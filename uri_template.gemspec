@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = UriTemplate::VERSION
 
   gem.add_dependency "parslet"
+  gem.add_dependency "addressable"
 
   gem.add_development_dependency "rspec"
 end

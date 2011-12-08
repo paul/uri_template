@@ -3,9 +3,16 @@ require 'parslet'
 class URITemplate
   class Transformer < Parslet::Transform
 
-    rule(:string => simple(:st)) { st.to_s }
+    rule(:literals => simple(:l)) { l.to_s }
+    rule(:string   => simple(:s)) { s.to_s }
 
-    rule(:var    => simple(:var)) { var.to_s }
+    rule(:array => subtree(:ar)) { ar.is_a?(Array) ? ar : [ar] }
+
+    rule(:explode) { true }
+
+    #rule(:name    => simple(:name)) { name.to_s }
+
+    rule(:number => simple(:x)) { Integer(x) }
 
   end
 end
