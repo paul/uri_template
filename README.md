@@ -1,6 +1,6 @@
-# UriTemplate
+# URITemplate
 
-TODO: Write a gem description
+Implements the URI Template draft spec, v7 http://tools.ietf.org/html/draft-gregorio-uritemplate-07
 
 ## Installation
 
@@ -18,7 +18,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    tmpl = URITemplate.new("http://example.com/search{?q,lang}")
+    tmpl.expand("q" => ["dogs", "cats"], "lang" => "en_US")
+    # => "http://example.com/search?q=dogs&q=cats&lang=en_US"
+
+See the spec for other examples.
 
 ## Contributing
 
