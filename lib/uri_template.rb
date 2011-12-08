@@ -97,7 +97,7 @@ class URITemplate
     # Algorithm taken directly from the spec.
     # TODO: refactor to be Ruby-like
     def value(params)
-      value = params[name]
+      value = params[name] || params[name.to_sym]
 
       out = ""
       case value
