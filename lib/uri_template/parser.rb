@@ -1,6 +1,6 @@
 require 'parslet'
 
-class URITemplate
+class UriTemplate
   class Parser < Parslet::Parser
 
     rule(:uri_template) do

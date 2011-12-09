@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe URITemplate do
+describe UriTemplate do
 
   describe "params" do
-    let(:template) { URITemplate.new("{foo}") }
+    let(:template) { UriTemplate.new("{foo}") }
 
     it "should handle string keys" do
       template.expand("foo" => "bar").should == "bar"

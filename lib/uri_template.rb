@@ -5,7 +5,7 @@ require __dir__ + "/uri_template/version"
 require __dir__ + "/uri_template/parser"
 require __dir__ + "/uri_template/transformer"
 
-class URITemplate
+class UriTemplate
   class ParseError < StandardError; end
 
   def initialize(uri_template)

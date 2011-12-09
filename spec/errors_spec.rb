@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe URITemplate do
+describe UriTemplate do
 
   describe "with good uris" do
 
@@ -14,7 +14,7 @@ describe URITemplate do
 
     good.each do |tmpl|
       it "should parse #{tmpl.inspect}" do
-        lambda { URITemplate.new(tmpl) }.should_not raise_error(URITemplate::ParseError)
+        lambda { UriTemplate.new(tmpl) }.should_not raise_error(UriTemplate::ParseError)
       end
     end
   end
@@ -28,7 +28,7 @@ describe URITemplate do
 
     bad.each do |tmpl|
       it "should not parse #{tmpl.inspect}" do
-        lambda { URITemplate.new(tmpl) }.should raise_error(URITemplate::ParseError)
+        lambda { UriTemplate.new(tmpl) }.should raise_error(UriTemplate::ParseError)
       end
     end
   end

@@ -1,6 +1,6 @@
 require 'parslet'
 
-class URITemplate
+class UriTemplate
   class Transformer < Parslet::Transform
 
     rule(:literals => simple(:l)) { l.to_s }

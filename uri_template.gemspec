@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "uri_template"
   gem.require_paths = ["lib"]
-  gem.version       = URITemplate::VERSION
+  gem.version       = UriTemplate::VERSION
 
   gem.add_dependency "parslet"
   gem.add_dependency "addressable"

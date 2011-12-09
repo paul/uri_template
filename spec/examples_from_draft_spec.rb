@@ -41,7 +41,7 @@ describe "Examples given in the Draft" do
     describe section do
       data.each do |template, expected|
         it "should render #{template.inspect} as #{expected.inspect}" do
-          URITemplate.new(template).expand(params).should == expected
+          UriTemplate.new(template).expand(params).should == expected
         end
       end
     end
