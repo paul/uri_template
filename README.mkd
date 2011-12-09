@@ -6,7 +6,7 @@ Implements the URI Template draft spec, v7 http://tools.ietf.org/html/draft-greg
 
 Add this line to your application's Gemfile:
 
-    gem 'uri_template'
+    gem 'ruby_uri_template'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install uri_template
+    $ gem install ruby_uri_template
 
 ## Usage
 
