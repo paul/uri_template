@@ -27,6 +27,8 @@ Or install it yourself as:
 
 See the spec for other examples.
 
+**Note:** Sometimes the spec fails on 1.8 because of hash-ordering. Use 1.9 or an ordered hash library if the order is important to you.
+
 ## Contributing
 
 1. Fork it
